@@ -1,0 +1,83 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use akhil;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_akhil |
++-----------------+
+| employee        |
+| faculty         |
+| food            |
+| student         |
++-----------------+
+4 rows in set (0.00 sec)
+
+mysql> select*from faculty;
++-------+---------+---------+---------+---------+
+| facid | facname | facdept | salary  | address |
++-------+---------+---------+---------+---------+
+|     1 | ram     | cse     |  500000 | NULL    |
+|     2 | rom     | ece     | 1000000 | NULL    |
+|     3 | amy     | eee     |  400000 | NULL    |
++-------+---------+---------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select* from faculty order by name;
+ERROR 1054 (42S22): Unknown column 'name' in 'order clause'
+mysql> select*from faculty order by name;
+ERROR 1054 (42S22): Unknown column 'name' in 'order clause'
+mysql> select*from faculty by name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by name' at line 1
+mysql> select*from faculty  order by facname;
++-------+---------+---------+---------+---------+
+| facid | facname | facdept | salary  | address |
++-------+---------+---------+---------+---------+
+|     3 | amy     | eee     |  400000 | NULL    |
+|     1 | ram     | cse     |  500000 | NULL    |
+|     2 | rom     | ece     | 1000000 | NULL    |
++-------+---------+---------+---------+---------+
+3 rows in set (0.03 sec)
+
+mysql> select*from faculty order by facdept;
++-------+---------+---------+---------+---------+
+| facid | facname | facdept | salary  | address |
++-------+---------+---------+---------+---------+
+|     1 | ram     | cse     |  500000 | NULL    |
+|     2 | rom     | ece     | 1000000 | NULL    |
+|     3 | amy     | eee     |  400000 | NULL    |
++-------+---------+---------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from faculty order by salary;
++-------+---------+---------+---------+---------+
+| facid | facname | facdept | salary  | address |
++-------+---------+---------+---------+---------+
+|     3 | amy     | eee     |  400000 | NULL    |
+|     1 | ram     | cse     |  500000 | NULL    |
+|     2 | rom     | ece     | 1000000 | NULL    |
++-------+---------+---------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from faculty order by facid;
++-------+---------+---------+---------+---------+
+| facid | facname | facdept | salary  | address |
++-------+---------+---------+---------+---------+
+|     1 | ram     | cse     |  500000 | NULL    |
+|     2 | rom     | ece     | 1000000 | NULL    |
+|     3 | amy     | eee     |  400000 | NULL    |
++-------+---------+---------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql>
